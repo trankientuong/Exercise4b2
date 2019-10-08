@@ -36,12 +36,14 @@ namespace Draw4b
         {
             char[,] arr = new char[n * 4, n * 4];
             Setup(arr, n * 4);
+            int a = n - 2;
+            int b = n - 1;
             for (int i = 0; i < n; i++)
             {
                 arr[i, i] = 'w';
-                arr[i, n - 1 - i + n - 1] = 'w';
-                arr[i, n + 3 + i] = 'w';
-                arr[i, n + n - i + 6] = 'w';
+                arr[i, n +a - i] = 'w';
+                arr[i, n + a + i] = 'w';
+                arr[i, n + a + b + b - i ] = 'w';
             }
             Print(arr, 4 * n);
         }
@@ -54,7 +56,7 @@ namespace Draw4b
             {
                 arr[i, n - a] = 'a';
                 arr[i, n - 1 + i] = 'a';
-                arr[n - 3, i + 2] = 'a';
+                arr[n - 3, n+1-i ] = 'a';
                 a = a + 1;
             }
             Print(arr, n * 2);
@@ -111,10 +113,11 @@ namespace Draw4b
         {
             char[,] arr = new char[n * 2, n * 2];
             Setup(arr, n * 2);
+            int a = n - 2;
             for (int i = 0; i < n; i++)
             {
                 arr[i, i] = 'v';
-                arr[i, n + 3 - i] = 'v';
+                arr[i, n + a - i] = 'v';
             }
             Print(arr, n * 2);
         }
@@ -168,17 +171,17 @@ namespace Draw4b
         }
         public static void Main(String[] args)
         {
-            //DrawW(5);
-            //DrawA(5);
+            DrawW(7);
+            //DrawA(7);
             //DrawN(5);
-            //DrawX(5);
+           // DrawX();
             // DrawPlus(5);
-            // DrawU(5);
-            // DrawV(5);
+             //DrawU(7);
+            // DrawV(7);
             //DrawSquare(5);
             //DrawSquare2(5);
-            DrawTriangle(4);
-            DrawTriangle2(4);
+           // DrawTriangle(4);
+            //DrawTriangle2(4);
         }
     }
 }
